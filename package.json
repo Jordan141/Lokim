@@ -1,0 +1,30 @@
+{
+  "name": "lokim-messenger",
+  "version": "3.0.0",
+  "description": "Secure chat messaging client",
+  "main": "app.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jordan141/Lokim.git"
+  },
+  "author": "Jordan Moss & Michael Kurowski",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jordan141/Lokim/issues"
+  },
+  "homepage": "https://github.com/Jordan141/Lokim#readme",
+  "dependencies": {
+    "angular": "^1.6.4",
+    "express": "^4.15.3",
+    "lodash": "^4.17.4",
+    "mongodb": "^2.2.29"
+  },
+  "devDependencies": {
+    "bluebird": "^3.5.0",
+    "chai": "^4.0.2",
+    "gulp": "^3.9.1"
+  }
+}
