@@ -1,24 +1,29 @@
-const http = require('http')
-const fs = require('fs')
-const PORT = process.argv[2] || 3000;
+const express = require('express')
+const PORT = process.env.PORT || 3000;
+const app = express()
+const throwLog = require('ionic-error-logger')
+const mongoose = require('mongoose')
+mongoose.Promise = Promise
+const passportBundle = require('./passport.js')
+const cookieParser = require('cookie-parser')
+const cookieSession = require('cookie-session')
 
-http.createServer((req, res) => {
+const config = require('./config/config.json')
+const dbAddress = config.backend.dbAddress
+const dbUsername = config.backend.dbUsername
+const dbPassword = config.backend.dbPassword
+const log = console.log
 
-    if(req.url === '/'){
-        fs.createReadStream(__dirname +'/index.htm').pipe(res)
-    }
+app.use('/', express.static(`${__dirname}/public`))
 
-    else if(req.url === '/api'){
-    res.writeHead(200, {'Content-Type': 'application/json'})
-    var obj = {
-        firstname: 'John',
-        lastname: 'Doe'
-    }
-    res.end(JSON.stringify(obj))
-    }
-    else{
-    res.writeHead(404)
-    res.end()
-    }
 
-}).listen(PORT, '127.0.0.1')
+
+app.use('/', (req,res,next) => {
+    console.log('Request Url:' + req.url)
+    next()
+})
+
+app.get('/', function(req,res){
+    res.render('')
+})
+app.listen(PORT)

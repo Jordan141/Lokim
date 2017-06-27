@@ -20,12 +20,19 @@
     "angular": "^1.6.4",
     "angular-route": "^1.6.4",
     "bluebird": "^3.5.0",
+    "body-parser": "^1.17.2",
     "bootstrap-sass": "^3.3.7",
+    "chalk": "^1.1.3",
+    "cookie-parser": "^1.4.3",
+    "cookie-session": "^2.0.0-beta.2",
     "express": "^4.15.3",
+    "ionic-error-logger": "^1.1.0",
     "jquery": "^3.2.1",
     "lodash": "^4.17.4",
     "mongodb": "^2.2.29",
-    "mongoose": "^4.11.0"
+    "mongoose": "^4.11.0",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0"
   },
   "devDependencies": {
     "babel-preset-es2015": "^6.24.1",
