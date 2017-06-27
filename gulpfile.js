@@ -19,8 +19,14 @@ gulp.task('pug', () => {
 })
 
 gulp.task('js', function(){
-    return gulp.src(conf.clientDevDir + 'index.js', {debug: true})
-		.pipe(browserify())
+    return gulp.src(conf.clientDevDir + '**/*.js', {debug: true})
+		.pipe(browserify(/*{
+			shim: { //make modules non-compatible witf browserify requireable
+				jQuery: {
+					path: ''
+				}
+			}
+		}*/))
 		.pipe(babel({ presets: ['es2015'] }))
 		.pipe(gulp.dest(conf.clientProdDir))
 })
