@@ -27,7 +27,9 @@ gulp.task('js', function(){
 
 gulp.task('sass', function () {
   return gulp.src( conf.clientDevDir + 'sass/**/*.scss')
-    .pipe(sass().on('error', sass.logError))
+    .pipe(sass(
+		{includePaths: ['node_modules/bootstrap-sass/assets/stylesheets']}
+		).on('error', sass.logError))
     .pipe(gulp.dest(conf.clientProdDir + 'css/'))
         .on('error', function (err) {console.log(err);this.emit('end')})
 })

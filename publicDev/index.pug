@@ -1,7 +1,9 @@
 head
     title
         |LokIM
-    script(src='bundle.js')
-body
+    script(src='index.js')
+body(ng-app='lokIM')
     h1
         |Hello world
+    ng-controller(ng-controller='mainController')
+        |{{appName}}
