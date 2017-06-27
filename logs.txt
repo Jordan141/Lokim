@@ -1,1 +1,1 @@
-[Tue Jun 27 2017 20:27:01 GMT+0100 (GMT Daylight Time)] Init - Connected to database
+[Tue Jun 27 2017 20:30:26 GMT+0100 (GMT Daylight Time)] Init - Connected to database
