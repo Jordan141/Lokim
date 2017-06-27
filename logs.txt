@@ -1,1 +1,0 @@
-[Tue Jun 27 2017 21:35:13 GMT+0200 (Central European Daylight Time)] Init - Connected to database
