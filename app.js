@@ -1,17 +1,19 @@
 const express = require('express')
-const PORT = process.env.PORT || 3000;
 const app = express()
 const throwLog = require('ionic-error-logger')
+const chalk = require('chalk')
+const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 mongoose.Promise = Promise
 const passportBundle = require('./passport.js')
 const cookieParser = require('cookie-parser')
 const cookieSession = require('cookie-session')
-
-const config = require('./config/config.json')
+const authenticationRouter = require('./routers/authentication.js')
+const config = require('./config/config.js')
 const dbAddress = config.backend.dbAddress
 const dbUsername = config.backend.dbUsername
 const dbPassword = config.backend.dbPassword
+const PORT = process.env.PORT || config.backend.port;
 const log = console.log
 
 
