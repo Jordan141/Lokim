@@ -14,16 +14,56 @@ const dbUsername = config.backend.dbUsername
 const dbPassword = config.backend.dbPassword
 const log = console.log
 
+
+const User = require('./models/user.js')
 app.use('/', express.static(`${__dirname}/public`))
 
+const sessionsMiddleware = [
+    cookieParser(),
+    cookieSession({
+        secret: config.backend.sessionsSecretKey,
+        maxAge: 1000 * 60 * 15
+    }),
+    passportBundle.initialize(),
+    passportBundle.session(),
+    (req,res,next) => {
+        if(!req.isAuthenticated()) return res.json({status: 'Not Logged In'})
+        next()
+    }
+]
 
-
+app.use('/login',
+    bodyParser.json(),
+    cookieParser(),
+    cookieSession({secret: config.backend.sessionsSecretKey}),
+    passportBundle.initialize(),
+    passportBundle.session(),
+    authenticationRouter   
+)
 app.use('/', (req,res,next) => {
     console.log('Request Url:' + req.url)
     next()
 })
 
-app.get('/', function(req,res){
-    res.render('')
-})
+mongoose.connect(`mongodb://${dbUsername}:${dbPassword}@${dbAddress}`).then(
+    () => {
+        User.create({
+            username: 'testUser',
+            password: config.backend.testUserPassword,
+            email: 'dummyMail@test.com'
+        })
+        throwLog('Init', 'Connected to database', true)
+        app.listen(port, () => {
+            throwLog('Init', 'App is running')
+			log(chalk.green('App is running'))
+        })
+    },
+    err => {
+        throwLog('Init', 'Database connection issue ' + err, true)
+		throw 'Database connection issue ' + err
+    }
+)
+
+
+
 app.listen(PORT)
