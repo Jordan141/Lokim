@@ -1,0 +1,26 @@
+const passport = require('passport')
+const LocalStrategy = require('passport-local')
+const User = require('./models/user.js')
+
+passport.use(new LocalStrategy( (username, password, done) =>
+    User.findOne({username}, (err, user) => {
+        if(err) return done(err)
+        if(!user) return done(null ,false, {mesaage: 'Incorrect username'})
+        !User.comparePasswords(user,password).then( isMismatch => {
+            if(!isMismatch) return done(null, false, {message: 'Incorrect password'})
+            return done(null, user)
+        })
+    }))
+)
+
+passport.deserializeUser( (id, done) => {
+    User.findById(id, (err,user) => {
+        done(err,user)
+    })
+})
+
+passport.serializeUser((user,done) =>
+    done(null,user.id)
+)
+
+module.exports = passport;
