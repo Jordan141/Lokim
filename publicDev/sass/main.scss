@@ -1,1 +1,24 @@
+$brand-primary: #8ba0a0;
+$link-color: #00ced1;
 @import 'bootstrap';
+
+
+
+@mixin linear-gradient-b($args...) {
+	background-image: -o-linear-gradient($args); 
+	background-image: -moz-linear-gradient($args); 
+	background-image: -webkit-linear-gradient($args); 
+	background-image: linear-gradient($args); 
+}
+
+body {
+	@include linear-gradient-b(0deg, #100f14, #24242c);
+	padding-top: 65px;
+	overflow-x: hidden;
+}
+.scrollable {
+	overflow-y: scroll;
+}
+.fill-vertically {
+	height: 100%;
+}

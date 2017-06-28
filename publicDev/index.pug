@@ -1,15 +1,18 @@
 head
-    title
-        |LokIM
-    script(src='https://code.jquery.com/jquery-3.2.1.min.js')
-    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
-    script(src='index.js')
-    link(rel='stylesheet' href='css/main.css')
-body.fluid-container(ng-app='lokIM')
-    h1.text-primary
-        |Hello world
-    div(ng-controller='mainController')
-        |{{appName}}
-    ng-view
-    a(href='#!/login')
-        | /login
+	title
+		|LokIM
+	script(src='https://code.jquery.com/jquery-3.2.1.min.js')
+	script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+	script(src='index.js')
+	link(rel='stylesheet' href='css/main.css')
+body(ng-app='lokIM')
+	nav.navbar-inverse.navbar-fixed-top
+		.fluid-container
+			.navbar-header
+				a.navbar-brand(href='#!/')
+					|LokIM
+				ul.navbar-nav
+					li
+						|Find friends
+	.fluid-container
+		ng-view

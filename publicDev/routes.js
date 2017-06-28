@@ -4,8 +4,7 @@ module.exports = function ($routeProvider) {
 			templateUrl: '/templates/login.html',
 			controller: 'login'
 		})
-		.when('/', {
-			templateUrl: '/templates/login.html',
-			controller: 'login'
+		.when('/chat', {
+			templateUrl: '/templates/chat.html'
 		})
 }
