@@ -7,7 +7,7 @@ module.exports = function ($scope, $timeout, $routeParams, $location, login) {
 		login.logIn()
 		.then(response => {
 			console.log(response)
-			//$location.path('/chat')
+			$location.path('/chat')
 		})
 	}
 	
