@@ -20,13 +20,8 @@ gulp.task('pug', () => {
 
 gulp.task('js', function(){
     return gulp.src(conf.clientDevDir + '**/*.js', {debug: true})
-		.pipe(browserify(/*{
-			shim: { //make modules non-compatible witf browserify requireable
-				jQuery: {
-					path: ''
-				}
-			}
-		}*/))
+		.pipe(browserify(/))
+		.on('error', function (err) {console.log(err);this.emit('end')})
 		.pipe(babel({ presets: ['es2015'] }))
 		.pipe(gulp.dest(conf.clientProdDir))
 })
@@ -34,10 +29,11 @@ gulp.task('js', function(){
 gulp.task('sass', function () {
   return gulp.src( conf.clientDevDir + 'sass/**/*.scss')
     .pipe(sass(
+		//Let Sass to import files directly from bootstrap
 		{includePaths: ['node_modules/bootstrap-sass/assets/stylesheets']}
 		).on('error', sass.logError))
     .pipe(gulp.dest(conf.clientProdDir + 'css/'))
-        .on('error', function (err) {console.log(err);this.emit('end')})
+        .on('error', function (err) {console.log(err.error);this.emit('end')})
 })
 
 gulp.task('watchCSS', () => gulp.watch(conf.clientDevDir + '**/*.scss', ['sass']))
