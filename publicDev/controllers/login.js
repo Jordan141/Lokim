@@ -1,22 +1,18 @@
 module.exports = function ($scope, $timeout, $routeParams, $location, login) {
 
-	$scope.$watch('username', function() {
-		$timeout( () => {
-			login.username = $scope.username
-		}	
-		, 0)
-	})
-	$scope.$watch('password', function() {
-		$timeout( () => {
-			login.username = $scope.username
-		}	
-		, 0)
-	})
 	$scope.logInToServer = function () {
+		
+		login.password = $scope.password
+		console.log('login9', login)
 		login.logIn()
+		.then(response => {
+			console.log(response)
+			//$location.path('/chat')
+		})
 	}
 	
 	$scope.changeView = function(){
-		$location.path('/loginPassword'); // path not hash
+		login.username = $scope.username
+		$location.path('/loginPassword') // path not hash
 	}
 }

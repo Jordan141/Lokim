@@ -12,5 +12,4 @@ module.exports = function ($routeProvider) {
 		.when('/chat', {
 			templateUrl: '/templates/chat.html'
 		})
-
 }

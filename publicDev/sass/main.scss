@@ -22,3 +22,9 @@ body {
 .fill-vertically {
 	height: 100%;
 }
+
+.drag-bottom {
+	position: absolute;
+	width: 100%;
+	bottom: 0;
+}

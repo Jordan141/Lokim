@@ -13,6 +13,12 @@ app.controller('mainController', ['$scope', function ($scope) {
 
 app.service('login', ['$http', require('./services/login.js')])
 
+app.directive('contact', function () {
+	return {
+		templateUrl: './templates/contact.html'
+	}
+})
+
 app.controller('login', 
 	['$scope', '$timeout', '$routeParams', '$location', 'login', require('./controllers/login.js')]
 )
