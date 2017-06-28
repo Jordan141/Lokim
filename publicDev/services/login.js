@@ -1,11 +1,11 @@
-let username, password
-
+/*
+	This service stores information about current session.
+	Username, password, thumbinal etc.
+*/
 module.exports = function($http) {
     this.username = 'Username'
 	this.password = 'Password'
 	this.authenticated = false
-	this.updateUsername = passedUsername => username = passedUsername
-	this.updatePassword = passedPassword => password = passedPassword
 	this.logIn = () => {
 		return $http({
 			method: 'POST',
