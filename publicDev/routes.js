@@ -9,6 +9,10 @@ module.exports = function ($routeProvider) {
 			templateUrl: '/templates/loginPassword.html',
 			controller: 'login'
 		})
+		.when('/signUp', {
+			templateUrl: '/templates/signUp.html',
+			controller: 'signUp'
+		})
 		.when('/chat', {
 			templateUrl: '/templates/chat.html'
 		})

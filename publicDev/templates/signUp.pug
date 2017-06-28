@@ -1,0 +1,14 @@
+.row
+	.col-md-4.col-md-offset-4
+		.row
+			.col-md-12.text-center
+				h2.text-primary
+					|Sign Up
+		.row
+			.row
+				form(ng-keypress='signUp($event)')
+					input.form-control(type='text' placeholder='Username' ng-model='username')
+					input.form-control(type='text' placeholder='Password' ng-model='password')
+					input.form-control(type='text' placeholder='email' ng-model='email')
+			p.text-warning
+				| Do not share your credentials to anybody!

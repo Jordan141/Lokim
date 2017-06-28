@@ -22,6 +22,9 @@ app.directive('contact', function () {
 app.controller('login', 
 	['$scope', '$timeout', '$routeParams', '$location', 'login', require('./controllers/login.js')]
 )
+app.controller('signUp', 
+	['$scope', '$http', '$location', require('./controllers/signUp.js')]
+)
 app.config(['$routeProvider', require('./routes.js')])
 
 
