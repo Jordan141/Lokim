@@ -1,4 +1,4 @@
-module.exports = function ($scope, $timeout, $routeParams, login) {
+module.exports = function ($scope, $timeout, $routeParams, $location, login) {
 
 	$scope.$watch('username', function() {
 		$timeout( () => {
@@ -12,5 +12,11 @@ module.exports = function ($scope, $timeout, $routeParams, login) {
 		}	
 		, 0)
 	})
-	$scope.logInToServer = login.logIn
+	$scope.logInToServer = function () {
+		login.logIn()
+	}
+	
+	$scope.changeView = function(){
+		$location.path('/loginPassword'); // path not hash
+	}
 }

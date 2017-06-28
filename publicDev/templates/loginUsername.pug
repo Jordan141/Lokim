@@ -6,7 +6,7 @@
 					|Log in
 		.row
 			.row
-				form
+				form(ng-submit='changeView()')
 					input.form-control(type='text' placeholder='Username' ng-model='username')
 			a(href='#!/register')
 				| Click here if you don't have an account

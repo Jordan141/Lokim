@@ -14,7 +14,7 @@ app.controller('mainController', ['$scope', function ($scope) {
 app.service('login', ['$http', require('./services/login.js')])
 
 app.controller('login', 
-	['$scope', '$timeout', '$routeParams', 'login', require('./controllers/login.js')]
+	['$scope', '$timeout', '$routeParams', '$location', 'login', require('./controllers/login.js')]
 )
 app.config(['$routeProvider', require('./routes.js')])
 
