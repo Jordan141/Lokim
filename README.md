@@ -3,13 +3,13 @@ Secure instant messaging application
 
 ### Documentation
 
-Login: /login
+Login: /api/login
  - Params: {username: "", password: ""}
 
-Sign Up: /signUp
+Sign Up: /api/signUp
  - Params: {username, password, email}
 
-Sign Out: /logout
+Sign Out: /api/logout
 
 #### Todo List
 [ ] Create todo list

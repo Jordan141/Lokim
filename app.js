@@ -34,7 +34,7 @@ const sessionsMiddleware = [
     }
 ]
 
-app.use('/login',
+app.use('/api',
     bodyParser.json(),
     cookieParser(),
     cookieSession({secret: config.backend.sessionsSecretKey}),
