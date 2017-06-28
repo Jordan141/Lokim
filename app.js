@@ -15,9 +15,9 @@ const dbUsername = config.backend.dbUsername
 const dbPassword = config.backend.dbPassword
 const PORT = process.env.PORT || config.backend.port;
 const log = console.log
+const User = require('./models/user.js');
+const emailer = require('./emailer.js')
 
-
-const User = require('./models/user.js')
 app.use('/', express.static(`${__dirname}/public`))
 
 const sessionsMiddleware = [
@@ -47,10 +47,13 @@ app.use('/', (req,res,next) => {
     next()
 })
 
+app.get('/verify', emailer.verify)
+app.get('/send',emailer.send)
+
 mongoose.connect(`mongodb://${dbUsername}:${dbPassword}@${dbAddress}`).then(
     () => {
         throwLog('Init', 'Connected to database', true)
-        app.listen(port, () => {
+        app.listen(PORT, () => {
             throwLog('Init', 'App is running')
 			log(chalk.green('App is running'))
         })
@@ -60,7 +63,3 @@ mongoose.connect(`mongodb://${dbUsername}:${dbPassword}@${dbAddress}`).then(
 		throw 'Database connection issue ' + err
     }
 )
-
-
-
-app.listen(PORT)
