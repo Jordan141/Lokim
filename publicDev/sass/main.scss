@@ -1,5 +1,7 @@
 $brand-primary: #8ba0a0;
+$brand-secondary: #402D53;
 $link-color: #00ced1;
+$navbar-default-bg: #585568;
 @import 'bootstrap';
 
 
@@ -27,4 +29,8 @@ body {
 	position: absolute;
 	width: 100%;
 	bottom: 0;
+}
+
+.text-secondary {
+	color: $brand-secondary;
 }
