@@ -11,19 +11,10 @@ app.controller('mainController', ['$scope', function ($scope) {
 }])
 
 
-app.service('login', ['$http', function($http) {
-    this.username = 'Username'
-	this.password = 'Password'
-	this.logIn = () => {
-		$http({
-			method: 'POST',
-			url: '/api/dummy'
-		})
-	}
-}])
+app.service('login', ['$http', require('./services/login.js')])
 
 app.controller('login', 
-	['$routeParams', 'login', require('./controllers/login.js')]
+	['$scope', '$timeout', '$routeParams', 'login', require('./controllers/login.js')]
 )
 app.config(['$routeProvider', require('./routes.js')])
 

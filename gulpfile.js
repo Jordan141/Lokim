@@ -20,7 +20,7 @@ gulp.task('pug', () => {
 
 gulp.task('js', function(){
     return gulp.src(conf.clientDevDir + '**/*.js', {debug: true})
-		.pipe(browserify(/))
+		.pipe(browserify())
 		.on('error', function (err) {console.log(err);this.emit('end')})
 		.pipe(babel({ presets: ['es2015'] }))
 		.pipe(gulp.dest(conf.clientProdDir))

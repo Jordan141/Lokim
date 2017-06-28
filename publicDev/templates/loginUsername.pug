@@ -6,6 +6,7 @@
 					|Log in
 		.row
 			.row
-				input.form-control(type='text' placeholder='Username')
+				form
+					input.form-control(type='text' placeholder='Username' ng-model='username')
 			a(href='#!/register')
 				| Click here if you don't have an account
