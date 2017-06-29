@@ -11,6 +11,8 @@ const conf = {
 };
 
 
+
+
 gulp.task('pug', () => {
     return gulp.src(conf.clientDevDir + '**/*.pug')
 	.pipe(pug())
@@ -36,10 +38,17 @@ gulp.task('sass', function () {
         .on('error', function (err) {console.log(err.error);this.emit('end')})
 })
 
+gulp.task('assets', function () {
+	return gulp.src(conf.clientDevDir + 'assets/**/*')
+	.pipe(gulp.dest(conf.clientProdDir + 'assets/'))
+})
+
+gulp.task('watchAssets', () => gulp.watch(conf.clientDevDir + 'assets/**/*', ['assets']))
+
 gulp.task('watchCSS', () => gulp.watch(conf.clientDevDir + '**/*.scss', ['sass']))
 
 gulp.task('watchJS', () => gulp.watch(conf.clientDevDir + '**/*.js', ['js']))
 
 gulp.task('watchPUG', () => gulp.watch(conf.clientDevDir + '**/*.pug', ['pug']))
 
-gulp.task('default', () => gulp.start(['js', 'pug', 'sass','watchPUG', 'watchCSS', 'watchJS']));
+gulp.task('default', () => gulp.start(['js', 'assets', 'pug', 'sass','watchPUG', 'watchCSS', 'watchJS', 'watchAssets']));
