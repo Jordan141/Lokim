@@ -5,7 +5,7 @@ const throwLog = require('ionic-error-logger')
 const passportBundle = require('../passport.js')
 
 router.post('/login', passportBundle.authenticate('local'), (req,res) => {
-    res.json({status: 'login success'})
+    res.json({status: '200'})
 })
 
 router.post('/signUp', (req, res) => {
@@ -15,14 +15,14 @@ router.post('/signUp', (req, res) => {
 		password, 
 		email
 	}).then(
-		val => res.json({status: 'success'}),
-		err => res.json({status: 'failure'})
+		val => res.json({status: '200'}),
+		err => res.json({status: '401'})
 	)
 })
 
 router.post('/logout', (req, res) => {
 	req.logout()
-	res.json({status: 'success'})
+	res.json({status: '200'})
 })
 
 module.exports = router

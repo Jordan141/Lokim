@@ -29,7 +29,7 @@ const sessionsMiddleware = [
     passportBundle.initialize(),
     passportBundle.session(),
     (req,res,next) => {
-        if(!req.isAuthenticated()) return res.json({status: 'Not Logged In'})
+        if(!req.isAuthenticated()) return res.json({status: '401'})
         next()
     }
 ]

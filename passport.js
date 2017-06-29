@@ -5,9 +5,9 @@ const User = require('./models/user.js')
 passport.use(new LocalStrategy( (username, password, done) =>
     User.findOne({username}, (err, user) => {
         if(err) return done(err)
-        if(!user) return done(null ,false, {mesaage: 'Incorrect username'})
+        if(!user) return done(null ,false, {mesaage: '401 '})
         !User.comparePasswords(user,password).then( isMismatch => {
-            if(!isMismatch) return done(null, false, {message: 'Incorrect password'})
+            if(!isMismatch) return done(null, false, {message: '401 '})
             return done(null, user)
         })
     }))
