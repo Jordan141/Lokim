@@ -16,4 +16,10 @@ module.exports = function ($routeProvider) {
 		.when('/chat', {
 			templateUrl: '/templates/chat.html'
 		})
+		.when('/welcome', {
+			templateUrl: '/templates/welcome.html'
+		})
+		.when('/', {
+			templateUrl: '/templates/welcome.html'
+		})
 }

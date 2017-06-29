@@ -1,13 +1,17 @@
 module.exports = function ($scope, $timeout, $routeParams, $location, login) {
 
 	$scope.logInToServer = function () {
-		
+		$scope.alert = false
 		login.password = $scope.password
-		console.log('login9', login)
+		console.log('login12', login)
 		login.logIn()
 		.then(response => {
-			console.log(response)
 			$location.path('/chat')
+		})
+		.catch((data, status) => {
+			if (status !== 200) {
+				$timeout(() => $scope.alert = true)
+			}
 		})
 	}
 	

@@ -1,5 +1,6 @@
 module.exports = function ($scope, $http, $location) {
 	console.log('signUp.js launched')
+	$scope.alert = false
 	$scope.signUp = function(event) {
 		console.log('signUp')
 		if(event.which === 13) {
@@ -16,6 +17,11 @@ module.exports = function ($scope, $http, $location) {
 				}
 			}).then( response => {
 				$location.path('/loginUsername') // path not hash
+			})
+			.catch((data, status) => {
+				if (status !== 200) {
+					$timeout(() => $scope.alert = true)
+				}
 			})
 		}
 	}

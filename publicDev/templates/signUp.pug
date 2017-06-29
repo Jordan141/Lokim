@@ -7,10 +7,12 @@
 		.row
 			.row
 				form(ng-keypress='signUp($event)')
-					input.form-control(type='text' placeholder='Username' ng-model='username')
-					input.form-control(type='text' placeholder='Password' ng-model='password')
-					input.form-control(type='text' placeholder='email' ng-model='email')
+					input.form-control.mt-2(autofocus type='text' placeholder='Username' ng-model='username')
+					input.form-control.mt-2(type='text' placeholder='Password' ng-model='password')
+					input.form-control.mt-2(type='text' placeholder='email' ng-model='email')
 			p.text-warning
 				| Do not share your credentials to anybody!
 			a(href='#!/loginUsername')
 				| Do you already have an account? Log in here!
+			.alert.alert-danger(ng-cloak ng-if='alert')
+				| The data is incorrect
