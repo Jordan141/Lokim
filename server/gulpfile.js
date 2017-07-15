@@ -51,4 +51,6 @@ gulp.task('watchJS', () => gulp.watch(conf.clientDevDir + '**/*.js', ['js']))
 
 gulp.task('watchPUG', () => gulp.watch(conf.clientDevDir + '**/*.pug', ['pug']))
 
-gulp.task('default', () => gulp.start(['js', 'assets', 'pug', 'sass','watchPUG', 'watchCSS', 'watchJS', 'watchAssets']));
+gulp.task('build', () => gulp.start(['js', 'assets', 'pug', 'sass']))
+
+gulp.task('default', () => gulp.start(['js', 'assets', 'pug', 'sass','watchPUG', 'watchCSS', 'watchJS', 'watchAssets']))
