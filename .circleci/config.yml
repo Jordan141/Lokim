@@ -6,5 +6,10 @@ jobs:
 			- image: circleci/node:7
 		steps:
 			- checkout
+<<<<<<< HEAD
 			- run: npm i --prefix server
 			- run: npm test --prefix server
+=======
+			- run: npm i
+			- run: npm test
+>>>>>>> 97790b3e0265b9aa8d8c8d89ff3833faf9ff905e
