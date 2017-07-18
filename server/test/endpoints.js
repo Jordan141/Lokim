@@ -1,3 +1,27 @@
+const basicEndpointTest = require('./utils/basicEndpointTest.js')
+
+const tests = [
+	{
+		requestData: {
+			endpoint: 'login',
+			httpMethod: 'post',
+			body: ''
+		},
+		expectedResponse: {
+			expectedCode: 200,
+			expectedParsingOutputType: 'object',
+			expectedProperies: []
+		}
+	
+	}
+]
+
+
+tests.forEach( endpoint => {
+	basicEndpointTest(endpoint.requestData, endpoint.expectedResponse, describe, it)
+})
+
+
 /*
 const basicEndpointTest = require('./utils/basicEndpointTest.js')
 
