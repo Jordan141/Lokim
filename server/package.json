@@ -41,6 +41,7 @@
     "browserify": "^14.4.0",
     "chai": "^4.0.2",
     "chai-as-promised": "^7.0.0",
+    "eslint": "^4.2.0",
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
     "gulp-browserify": "^0.5.1",
