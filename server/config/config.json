@@ -1,0 +1,12 @@
+{
+    "backend": {
+        "port": 80,
+        "hostname": "localhost",
+        "dbAddress": "",
+        "dbUsername": "",
+        "dbPassword": "",
+        "sessionsSecretKey": "",
+        "testUserPassword": ""
+    }
+}
+
