@@ -4,7 +4,7 @@
   "description": "Secure chat messaging client",
   "main": "app.js",
   "scripts": {
-    "test": "test"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
